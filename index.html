@@ -124,6 +124,7 @@ frameborder="0"
 <script>
    $('input').on('change', function() {
   var inputText = $(this).val();
+  console.log(inputText)
   var apiUrl = 'https://translation.googleapis.com/language/translate/v2?key=AIzaSyBDhbEGtFZg42lSfmfOL6lmnW23La4-j4Q';
   var params = {
     q: inputText,
