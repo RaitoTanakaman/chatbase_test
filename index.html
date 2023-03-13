@@ -122,10 +122,23 @@ frameborder="0"
 ></script>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script>
-    console.log($('.Button_disabled__Ksgjy'));
-    $('.Button_disabled__Ksgjy').click(function() {
-        return false;
-    });
+    const submitButton = document.querySelector(".Button_disabled__Ksgjy");
+
+// 送信ボタンをクリックしたときに実行する関数
+function handleSubmit(event) {
+    console.log('click');
+  // デフォルトの送信動作を止める
+  event.preventDefault();
+
+  // 送信ボタンを無効化する
+  submitButton.disabled = true;
+
+  // ここに送信処理のコードを追加する
+  conosle.log('ok');
+}
+
+// 送信ボタンにイベントリスナーを追加
+submitButton.addEventListener("click", handleSubmit);
 </script>
 </body>
 </html>
