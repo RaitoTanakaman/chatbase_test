@@ -116,13 +116,12 @@ width="100%"
 height="700"
 frameborder="0"
 ></iframe>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script
   src="https://cdn.jsdelivr.net/gh/yasserelsaid/chatbot@v0.1.4/index.min.js"
   data-chatbotId="raitotanakaman-github-io-ctc54bahg"
-></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-   $('input').on('change', function() {
+>
+$('input').on('change', function() {
   var inputText = $(this).val();
   console.log(inputText)
   var apiUrl = 'https://translation.googleapis.com/language/translate/v2?key=AIzaSyBDhbEGtFZg42lSfmfOL6lmnW23La4-j4Q';
@@ -146,7 +145,7 @@ frameborder="0"
       console.log('翻訳に失敗しました。');
     }
   });
-});
-</script>
+});</script>
+
 </body>
 </html>
