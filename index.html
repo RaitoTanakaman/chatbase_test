@@ -122,23 +122,30 @@ frameborder="0"
 ></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-    const submitButton = document.querySelector(".Button_disabled__Ksgjy");
+   $('input').on('change', function() {
+  var inputText = $(this).val();
+  var apiUrl = 'https://translation.googleapis.com/language/translate/v2?key=AIzaSyBDhbEGtFZg42lSfmfOL6lmnW23La4-j4Q';
+  var params = {
+    q: inputText,
+    source: 'auto',
+    target: 'en'
+  };
 
-// 送信ボタンをクリックしたときに実行する関数
-function handleSubmit(event) {
-    console.log('click');
-  // デフォルトの送信動作を止める
-  event.preventDefault();
-
-  // 送信ボタンを無効化する
-  submitButton.disabled = true;
-
-  // ここに送信処理のコードを追加する
-  console.log('ok');
-}
-
-// 送信ボタンにイベントリスナーを追加
-submitButton.addEventListener("click", handleSubmit);
+  $.ajax({
+    url: apiUrl,
+    type: 'POST',
+    data: params,
+    dataType: 'json',
+    success: function(data) {
+      var translatedText = data.data.translations[0].translatedText;
+      console.log(translatedText);
+      // 翻訳結果を取得して、コンソールに表示する
+    },
+    error: function(xhr, status, error) {
+      console.log('翻訳に失敗しました。');
+    }
+  });
+});
 </script>
 </body>
 </html>
